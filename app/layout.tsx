@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Care Match",
   description: "Care Match",
 };
-// random comment
+
 export default function RootLayout({
   children,
 }: Readonly<{
