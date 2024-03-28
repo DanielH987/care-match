@@ -64,7 +64,7 @@ const Modal:React.FC<ModalProps> = ({
                             transform 
                             overflow-hidden 
                             rounded-lg 
-                            bg-white 
+                            bg-[#FFF1EC]
                             px-4 
                             pb-4
                             pt-5 
@@ -94,7 +94,7 @@ const Modal:React.FC<ModalProps> = ({
                                     type="button"
                                     className="
                                     rounded-md 
-                                    bg-white 
+                                    bg-[#FFF1EC]
                                     text-gray-400 
                                     hover:text-gray-500 
                                     focus:outline-none 

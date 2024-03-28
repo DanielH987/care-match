@@ -59,7 +59,7 @@ const Input: React.FC<InputProps> = ({
                         shadow-sm
                         ring-1
                         ring-inset
-                        ring-gray-300
+                        bg-[#FFF1EC]
                         placeholder:text-gray-400
                         focus:ring-2
                         focus:ring-inset

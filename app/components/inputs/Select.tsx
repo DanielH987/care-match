@@ -39,7 +39,23 @@ const Select: React.FC<SelectProps> = ({
                     options={options}
                     menuPortalTarget={document.body}
                     styles={{
-                        menuPortal: (base) => ({ ...base, zIndex: 9999 })
+                        menuPortal: (base) => ({ ...base, zIndex: 9999 }),
+                        control: (provided) => ({
+                            ...provided,
+                            backgroundColor: '#FFF1EC', // Control background color
+                        }),
+                        menu: (provided) => ({
+                            ...provided,
+                            backgroundColor: '#FFF1EC', // Dropdown menu background color
+                        }),
+                        option: (provided, state) => ({
+                            ...provided,
+                            backgroundColor: state.isSelected ? '#FFF1EC' : '#FFF1EC',
+                            color: state.isSelected ? 'black' : 'black',
+                            '&:hover': {
+                                backgroundColor: '#FFE5D8',
+                            },
+                        }),
                     }}
                     classNames={{
                         control: () => 'text-sm',

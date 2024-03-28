@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({
             />
             <div
                 className="
-                    bg-white 
+                    bg-[#FFF1EC]
                     w-full 
                     flex 
                     border-b-[1px] 

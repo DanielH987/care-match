@@ -8,7 +8,7 @@ import { useCallback, useState } from "react";
 import { FiAlertTriangle } from 'react-icons/fi'
 import toast from "react-hot-toast";
 import { Dialog } from "@headlessui/react";
-import Button from "@/app/components/Button";
+import OtherButton from "@/app/components/OtherButton";
 
 interface ConfirmModalProps {
     isOpen?: boolean;
@@ -83,20 +83,20 @@ const ConfirmModal: React.FC<ConfirmModalProps> = ({
                 </div>
             </div>
             <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
-                <Button
+                <OtherButton
                     disabled={isLoading}
                     danger
                     onClick={onDelete}
                     >
                     Delete
-                </Button>
-                <Button
+                </OtherButton>
+                <OtherButton
                     disabled={isLoading}
                     secondary
                     onClick={onClose}
                     >
                     Cancel
-                </Button>
+                </OtherButton>
             </div>
         </Modal>
     );

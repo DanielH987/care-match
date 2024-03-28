@@ -1,7 +1,7 @@
 'use client';
 
-import Button from "@/app/components/Button";
 import Modal from "@/app/components/Modal";
+import OtherButton from "@/app/components/OtherButton";
 import Input from "@/app/components/inputs/Input";
 import Select from "@/app/components/inputs/Select";
 import { User } from "@prisma/client";
@@ -126,20 +126,20 @@ const GroupChatModal: React.FC<GroupChatModalProps> = ({
                         gap-x-6
                     "
                 >
-                    <Button
+                    <OtherButton
                         disabled={isLoading}
                         onClick={onClose}
                         type="button"
                         secondary
                     >
                         Cancel
-                    </Button>
-                    <Button
+                    </OtherButton>
+                    <OtherButton
                         disabled={isLoading}
                         type="submit" 
                     >
                         Create
-                    </Button>
+                    </OtherButton>
                 </div>
             </form>
         </Modal>

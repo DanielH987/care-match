@@ -25,7 +25,7 @@ const ConversationId = async ({ params }: { params: IParams }) => {
 
     return (
         <div className="lg:pl-80 h-full">
-            <div className="h-full flex flex-col">
+            <div className="h-full flex flex-col bg-[#FFF1EC]">
             <Header conversation={conversation} />
             <Body initialMessages={messages}/>
             <Form />

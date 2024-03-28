@@ -18,7 +18,7 @@ const AuthSocialButton: React.FC<AuthSocialButtonProps> = ({
                 w-full
                 justify-center
                 rounded-md
-                bg-white
+                bg-[#FFF1EC]
                 px-4
                 py-2
                 text-gray-500

@@ -9,9 +9,9 @@ import { CldUploadButton } from 'next-cloudinary';
 
 import Input from "../inputs/Input";
 import Modal from '../Modal';
-import Button from '../Button';
 import Image from 'next/image';
 import { toast } from 'react-hot-toast';
+import OtherButton from '../OtherButton';
 
 interface SettingsModalProps {
   isOpen?: boolean;
@@ -118,13 +118,13 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                     onUpload={handleUpload} 
                     uploadPreset="ahcfhj3z"
                   >
-                    <Button
+                    <OtherButton
                       disabled={isLoading}
                       secondary
                       type="button"
                     >
                       Change
-                    </Button>
+                    </OtherButton>
                   </CldUploadButton>
                 </div>
               </div>
@@ -141,19 +141,19 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
             gap-x-6
           "
         >
-          <Button 
+          <OtherButton 
             disabled={isLoading}
             secondary 
             onClick={onClose}
           >
             Cancel
-          </Button>
-          <Button 
+          </OtherButton>
+          <OtherButton 
             disabled={isLoading}
             type="submit"
           >
             Save
-          </Button>
+          </OtherButton>
         </div>
       </form>
     </Modal>
