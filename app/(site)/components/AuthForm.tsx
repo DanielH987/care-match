@@ -3,6 +3,7 @@
 import Button from "@/app/components/Button";
 import Input from "@/app/components/inputs/Input";
 import { useCallback, useEffect, useState } from "react";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 import { 
     FieldValues, 
     SubmitHandler, 
@@ -23,12 +24,17 @@ const Authform = () => {
     const [variant, setVariant] = useState<Variant>('LOGIN'); 
     const [isLoading, setIsLoading] = useState(false);
     const [login, setLogin] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
 
     useEffect(() => {
         if (session?.status == 'authenticated') {
             router.push('/users');
         }
     }, [session?.status, router]);
+
+    const toggleShowPassword = useCallback(() => {
+        setShowPassword((show) => !show);
+    }, []);
 
     const togglevariant = useCallback(() => {
         if (variant == 'LOGIN') {
@@ -184,11 +190,19 @@ const Authform = () => {
                         <Input 
                             id="password" 
                             label="Password" 
-                            type="password"
+                            type={showPassword ? "text" : "password"}
                             register={register}
                             errors={errors}
                             disabled={isLoading}
-                        />
+                        >
+                            <div className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 cursor-pointer">
+                                {showPassword ? (
+                                    <FiEye size={20} onClick={toggleShowPassword} />
+                                ) : (
+                                    <FiEyeOff size={20} onClick={toggleShowPassword} />
+                                )}
+                            </div>
+                        </Input>
                         <div>
                             <Button
                                 disabled={isLoading}
@@ -259,7 +273,6 @@ const Authform = () => {
                             {variant == 'LOGIN' ? 'Create an account' : 'Login'}
                         </div>
                     </div>
-    
                 </div>
             }
         </div>

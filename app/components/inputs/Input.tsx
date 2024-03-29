@@ -15,63 +15,45 @@ interface InputProps {
     register: UseFormRegister<FieldValues>,
     errors: FieldErrors,
     disabled?: boolean;
+    // children should be ReactNode, which includes React elements, strings, numbers, and so on.
+    children?: React.ReactNode;
 }
 
 const Input: React.FC<InputProps> = ({
     label,
     id,
-    type,
+    type = 'text',
     required,
     register,
     errors,
-    disabled
+    disabled,
+    children
 }) => {
     return (
         <div>
             <label 
-                className="
-                    block
-                    text-sm
-                    font-medium
-                    leading-6
-                    text-gray-900
-                "
+                className="block text-sm font-medium leading-6 text-gray-900"
                 htmlFor={id}
-            
             >
                 {label}
             </label>
-            <div className='mt-2'>
+            <div className='mt-2 relative'>
                 <input
                     id={id}
                     type={type}
                     autoComplete={id}
                     disabled={disabled}
-                    { ...register(id, { required })}
-                    className={clsx(`
-                        form-input
-                        block
-                        w-full
-                        rounded-md
-                        border-0
-                        py-1.5
-                        text-gray-900
-                        shadow-sm
-                        ring-1
-                        ring-inset
-                        bg-[#FFF1EC]
-                        placeholder:text-gray-400
-                        focus:ring-2
-                        focus:ring-inset
-                        focus:ring-sky-600
-                        sm:text-sm
-                        sm:leading-6`, 
-                        errors[id] && "focus:ring-rose-500",
-                        disabled && "opacity-50 cursor-default"
-                        )}
+                    {...register(id, { required })}
+                    className={clsx(
+                        'form-input block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset bg-[#FFF1EC] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6',
+                        errors[id] && 'focus:ring-rose-500',
+                        disabled && 'opacity-50 cursor-default'
+                    )}
                 />
+                {children}
             </div>
         </div>
     );
 }
+
 export default Input;
