@@ -6,6 +6,7 @@ import DesktopItem from "./DesktopItem";
 import { User } from "@prisma/client";
 import Avatar from "../Avatar";
 import SettingsModal from "./SettingsModal";
+import { useRouter } from 'next/navigation';
 
 interface DesktopSidebarProps {
     currentUser: User
@@ -15,7 +16,12 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
     currentUser
 }) => {
     const routes = useRoutes();
+    const router = useRouter();
     const [isOpen, setIsOpen] = useState(false);
+
+    const handleAvatarClick = () => {
+        router.push('/profile'); 
+    };
 
     console.log({ currentUser });
 
@@ -78,7 +84,7 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
                         items-center"
                 >
                     <div 
-                        onClick={() => setIsOpen(true)} 
+                        onClick={handleAvatarClick} 
                         className="
                             cursor-pointer 
                             hover:opacity-75 

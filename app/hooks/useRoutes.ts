@@ -23,9 +23,10 @@ const useRoutes = () => {
       active: pathname === '/users'
     },
     // {
-    //   label: 'Map', 
-    //   href: '#',
+    //   label: 'Profile', 
+    //   href: '/profile',
     //   icon: HiUserCircle, 
+    //   active: pathname === '/profile'
     // },
     {
       label: 'Logout', 

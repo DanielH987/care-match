@@ -203,6 +203,17 @@ const Authform = () => {
                                 )}
                             </div>
                         </Input>
+                        {/* {variant === 'LOGIN' && (
+                            <div
+                                className="
+                                    text-gray-500
+                                    underline cursor-pointer
+                                "
+                                // onClick={handleForgotPassword}
+                            >
+                                Forgot password?
+                            </div>
+                        )} */}
                         <div>
                             <Button
                                 disabled={isLoading}
