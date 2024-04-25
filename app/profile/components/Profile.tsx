@@ -169,11 +169,15 @@ const Profile: React.FC<ProfileProps> = ({
                     register={register}
                   />
 
-                <div>
-                  <p className="text-sm text-gray-600">
-                    Joined Care Match on: {format(new Date(currentUser?.createdAt), 'PPP')}
-                  </p>
-                </div>
+                  <div>
+                    <p className="text-sm text-gray-600">
+                      {currentUser?.createdAt ? 
+                        `Joined Care Match on: ${format(new Date(currentUser.createdAt), 'PPP')}` :
+                        'Join date not available'
+                      }
+                    </p>
+                  </div>
+
                 </div>
               </div>
             </div>
