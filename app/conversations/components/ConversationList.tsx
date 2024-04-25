@@ -12,6 +12,7 @@ import { User } from "@prisma/client";
 import { useSession } from "next-auth/react";
 import { pusherClient } from "@/app/libs/pusher";
 import { find } from "lodash";
+import Header from "@/app/components/Header";
 
 interface ConversationListProps {
     initialItems: FullConversationType[];
@@ -108,15 +109,13 @@ const ConversationList: React.FC<ConversationListProps> = ({
                 )} 
             >
                 <div className="px-5">
-                    <div className="flex justify-between mb-4 pt-4">
-                        <div className="text-2xl font-bold text-neutral-800">
-                            Messages
-                        </div>
+                    <div className="flex justify-between mb-4">
+                        <Header headerText="Messages" />
                         <div 
                             onClick={() => setIsModalOpen(true)} 
                             className="
                                 rounded-full 
-                                p-2 
+                                pt-5 pr-4
                                 bg-[#FFF1EC]
                                 text-gray-600 
                                 cursor-pointer 
@@ -124,7 +123,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
                                 transition
                             "
                         >
-                            <MdOutlineGroupAdd size={20}/>
+                            <MdOutlineGroupAdd size={20} />
                         </div>
                     </div>
                     {items.map((item) => (

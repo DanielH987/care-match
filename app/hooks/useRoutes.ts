@@ -22,12 +22,6 @@ const useRoutes = () => {
       icon: HiUsers, 
       active: pathname === '/users'
     },
-    // {
-    //   label: 'Profile', 
-    //   href: '/profile',
-    //   icon: HiUserCircle, 
-    //   active: pathname === '/profile'
-    // },
     {
       label: 'Logout', 
       onClick: () => signOut(),

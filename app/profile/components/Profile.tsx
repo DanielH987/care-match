@@ -15,6 +15,7 @@ import OtherButton from '../../components/OtherButton';
 import SettingsModal from '@/app/components/sidebar/SettingsModal';
 import { format } from 'date-fns';
 import { HiMiniPencil } from "react-icons/hi2";
+import Header from "@/app/components/Header";
 
 interface ProfileProps {
   currentUser: User;
@@ -76,8 +77,33 @@ const Profile: React.FC<ProfileProps> = ({
   }, []);
 
   return (
-      <div className="max-w-3xl w-full"> 
-        <form onSubmit={handleSubmit(onSubmit)}>
+    <div className="flex flex-col lg:flex-row">
+    <aside
+      className="
+        fixed 
+        inset-y-0 
+        pb-20
+        lg:pb-0
+        lg:left-20 
+        lg:w-auto
+        lg:right-0   
+        lg:block
+        overflow-y-auto 
+        border-r 
+        bg-[#FFF1EC]
+        block w-full left-0
+      "
+    >
+      <div className="px-5">
+        <Header headerText="Profile" />
+        <form 
+          className="
+            max-w-xl   
+            w-full     
+            mx-auto     
+          "
+          onSubmit={handleSubmit(onSubmit)}
+        >
             <div className="space-y-12">
               <div className="border-b border-gray-900/10 pb-12">
                 <div className="flex justify-center">
@@ -177,7 +203,10 @@ const Profile: React.FC<ProfileProps> = ({
               </OtherButton>
             </div>
           </form>
-        </div>
+      </div>
+    </aside>
+
+  </div>
   );
 }
  
