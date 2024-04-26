@@ -38,9 +38,9 @@ const Profile: React.FC<ProfileProps> = ({
     }
   } = useForm<FieldValues>({
     defaultValues: {
-      name: currentUser?.name || '',
-      image: currentUser?.image || '/images/placeholder.jpg',
-      email: currentUser?.email || ''
+      name: currentUser?.name,
+      image: currentUser?.image,
+      email: currentUser?.email
     }
   });
 
