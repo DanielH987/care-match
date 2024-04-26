@@ -18,11 +18,11 @@ import { HiMiniPencil } from "react-icons/hi2";
 import Header from "@/app/components/Header";
 
 interface ProfileProps {
-  currentUser: User;
+  currentUser?: User;
 }
 
 const Profile: React.FC<ProfileProps> = ({
-  currentUser = {}
+  currentUser
 }) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
@@ -40,9 +40,9 @@ const Profile: React.FC<ProfileProps> = ({
     }
   } = useForm<FieldValues>({
     defaultValues: {
-      name: currentUser?.name || '',
-      image: currentUser?.image || '/images/placeholder.jpg',
-      email: currentUser?.email || ''
+      name: currentUser?.name,
+      image: currentUser?.image,
+      email: currentUser?.email
     }
   });
 
