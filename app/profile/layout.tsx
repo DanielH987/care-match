@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState } from "react";
 import getCurrentUser from "../actions/getCurrentUser";
 import Sidebar from "../components/sidebar/Sidebar";
