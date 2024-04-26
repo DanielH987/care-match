@@ -10,6 +10,5 @@ export const config = {
     matcher: [
         "/users/:path*",
         "/conversations/:path*",
-        "/profile/:path*"
     ]
 }
