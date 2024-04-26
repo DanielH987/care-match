@@ -1,11 +1,12 @@
 'use client';
+
 import { useState } from 'react';
 import useRoutes from "@/app/hooks/useRoutes";
 import MobileItem from "./MobileItem";
-import { useRouter } from 'next/navigation';
 import Avatar from "../Avatar";
 import { User } from "@prisma/client";
 import { useDrawer } from '@/app/context/DrawerContext';
+import SettingsModal from './SettingsModal';
 
 interface MobileFooterProps {
     currentUser: User;
@@ -14,12 +15,7 @@ interface MobileFooterProps {
 const MobileFooter: React.FC<MobileFooterProps> = ({ currentUser }) => {
     const { isOpen, toggleDrawer } = useDrawer();
     const routes = useRoutes();
-    const router = useRouter();
-
-    const handleAvatarClick = () => {
-        toggleDrawer();
-        router.push('/profile')
-    };
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
     const overlayStyles = `fixed inset-0 bg-black z-40 lg:hidden transition-opacity duration-300 ease-in-out ${
         isOpen ? "opacity-50" : "opacity-0 pointer-events-none"
@@ -31,6 +27,7 @@ const MobileFooter: React.FC<MobileFooterProps> = ({ currentUser }) => {
 
     return (
         <>
+            <SettingsModal currentUser={currentUser} isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
             <div className={overlayStyles} onClick={toggleDrawer}></div>
             <div className={drawerStyles}>
                 <div className="flex flex-col h-full">
@@ -55,7 +52,7 @@ const MobileFooter: React.FC<MobileFooterProps> = ({ currentUser }) => {
                             ))}
                         </ul>
                     </nav>
-                    <div onClick={handleAvatarClick} className="mt-4 mb-4 w-full flex justify-center">
+                    <div onClick={() => setIsDrawerOpen(true)} className="mt-4 mb-4 w-full flex justify-center">
                         <div className="flex items-center cursor-pointer hover:opacity-75 transition">
                             <Avatar user={currentUser}/>
                             <span className="

@@ -84,7 +84,7 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
                         items-center"
                 >
                     <div 
-                        onClick={handleAvatarClick} 
+                        onClick={() => setIsOpen(true)} 
                         className="
                             cursor-pointer 
                             hover:opacity-75 
