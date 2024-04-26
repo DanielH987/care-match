@@ -8,11 +8,9 @@ import { User } from '@prisma/client';
 import { CldUploadButton } from 'next-cloudinary';
 
 import Input from "../../components/inputs/Input";
-import Modal from '../../components/Modal';
 import Image from 'next/image';
 import { toast } from 'react-hot-toast';
 import OtherButton from '../../components/OtherButton';
-import SettingsModal from '@/app/components/sidebar/SettingsModal';
 import { format } from 'date-fns';
 import { HiMiniPencil } from "react-icons/hi2";
 import Header from "@/app/components/Header";
@@ -40,9 +38,9 @@ const Profile: React.FC<ProfileProps> = ({
     }
   } = useForm<FieldValues>({
     defaultValues: {
-      name: currentUser?.name,
-      image: currentUser?.image,
-      email: currentUser?.email
+      name: currentUser?.name || '',
+      image: currentUser?.image || '/images/placeholder.jpg',
+      email: currentUser?.email || ''
     }
   });
 
