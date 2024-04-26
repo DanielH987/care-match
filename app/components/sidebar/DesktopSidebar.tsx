@@ -5,6 +5,7 @@ import { useState } from "react";
 import DesktopItem from "./DesktopItem";
 import { User } from "@prisma/client";
 import Avatar from "../Avatar";
+import SettingsModal from "./SettingsModal";
 import { useRouter } from 'next/navigation';
 
 interface DesktopSidebarProps {
@@ -22,10 +23,11 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
         router.push('/profile'); 
     };
 
-    console.log({ currentUser });
+    console.log( currentUser, "DESKTOP" );
 
     return (
         <>
+            <SettingsModal currentUser={currentUser} isOpen={isOpen} onClose={() => setIsOpen(false)} />
             <div
                 className="
                     hidden
