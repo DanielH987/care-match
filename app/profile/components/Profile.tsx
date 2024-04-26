@@ -25,9 +25,7 @@ const Profile: React.FC<ProfileProps> = ({
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
-  console.log("Profile.tsx file");
-
-  console.log(currentUser, '&TEST_CURRENT_USER')
+  console.log(currentUser, '&TEST_CURRENT_USER2')
 
   const {
     register,
