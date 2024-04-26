@@ -2,9 +2,7 @@ import getCurrentUser from "../actions/getCurrentUser";
 import Sidebar from "../components/sidebar/Sidebar";
 import Profile from "./components/Profile";
 
-export default async function ProfileLayout({
-    children
-}: {
+async function ProfileLayout({children}: {
     children: React.ReactNode;
 }) {
     const currentUser = await getCurrentUser();
@@ -29,3 +27,5 @@ export default async function ProfileLayout({
         </Sidebar>
     )
 }
+
+export default ProfileLayout;

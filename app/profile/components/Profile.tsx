@@ -72,10 +72,7 @@ const Profile: React.FC<ProfileProps> = ({
   useEffect(() => {
     setIsClient(true);
   }, []);
-  
-  if (!currentUser) {
-    return <div>Loading...</div>; // or any other fallback UI
-  } else {
+
   return (
     <div className="flex flex-col lg:flex-row">
     <aside
@@ -212,7 +209,6 @@ const Profile: React.FC<ProfileProps> = ({
 
   </div>
   );
-}
 }
  
 export default Profile;
