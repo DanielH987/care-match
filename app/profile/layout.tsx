@@ -1,14 +1,36 @@
+import { useEffect, useState } from "react";
 import getCurrentUser from "../actions/getCurrentUser";
 import Sidebar from "../components/sidebar/Sidebar";
 import Profile from "./components/Profile";
+import { User } from "@prisma/client";
 
-export default async function ProfileLayout({
+export default function ProfileLayout({
     children
 }: {
     children: React.ReactNode;
 }) {
-    const currentUser = await getCurrentUser();
-    
+    const [currentUser, setCurrentUser] = useState<User | null>(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState("");
+
+    useEffect(() => {
+        getCurrentUser().then(user => {
+            setCurrentUser(user);
+            setIsLoading(false);
+        }).catch(err => {
+            setError("Failed to fetch user");
+            setIsLoading(false);
+        });
+    }, []);
+
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>{error}</div>;
+    }
+
     return (
         <Sidebar>
             <div 
@@ -24,7 +46,7 @@ export default async function ProfileLayout({
                     bg-[#FFF1EC]
                 "
             >
-                {currentUser && <Profile currentUser={currentUser}/>}
+                {currentUser ? <Profile currentUser={currentUser}/> : <div>No user found</div>}
             </div>
         </Sidebar>
     )
