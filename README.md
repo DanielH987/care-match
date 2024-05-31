@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Care Match Web App
 
-## Getting Started
+Care Match is a platform where parents can find babysitters and message them online through the app. The project is built with the latest web technologies and is organized to provide a robust, scalable, and maintainable codebase.
 
-First, run the development server:
+## Project Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This Care Match web app offers the following features:
+- User authentication and account creation
+- Real-time messaging
+- Responsive design
+- User status updates
+- Group chat functionality
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Frontend**: React, Next.js, TypeScript, TailwindCSS
+- **Backend**: Node.js, Prisma, Pusher
+- **Authentication**: NextAuth.js
+- **Database**: Prisma with PostgreSQL
+- **Other Libraries**: Axios, React Hook Form, React Icons, Zustand, and more.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Usage Instructions
 
-## Learn More
+- **Creating an Account**: Navigate to the signup page and fill in the required details.
+- **Sending Messages**: After logging in, you can start a conversation with any user by navigating to their profile and sending a message.
+- **Real-time Updates**: The app uses Pusher for real-time messaging and status updates.
 
-To learn more about Next.js, take a look at the following resources:
+## Installation Instructions
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To set up and run this project locally, follow these steps:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Prerequisites
 
-## Deploy on Vercel
+Ensure you have the following installed:
+- Node.js (v14 or above)
+- npm (v6 or above) or yarn
+- PostgreSQL
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Steps
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/DanielH987/care-match.git
+    cd care-match
+    ```
+
+2. **Install dependencies**:
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
+
+3. **Set up the environment variables**:
+    - Create a `.env` file in the root directory.
+    - Copy the content from `.env.example` and update the variables accordingly.
+
+4. **Set up the database**:
+    - Ensure PostgreSQL is running.
+    - Update the database connection string in the `.env` file.
+    - Run Prisma migrations:
+      ```bash
+      npx prisma migrate dev --name init
+      ```
+
+5. **Generate Prisma Client**:
+    ```bash
+    npx prisma generate
+    ```
+
+6. **Start the development server**:
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    ```
